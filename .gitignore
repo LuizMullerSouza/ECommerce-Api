@@ -1,17 +1,24 @@
+# Python runtime files
 __pycache__/
 *.py[cod]
 *$py.class
 
-.venv
-venv
+# Virtual environment folders
+.venv/
+venv/
 env/
 
+# Local database file (IMPORTANT: DO NOT COMMIT)
+instance/ecommerce.db
+*.sqlite3
+
+# Environment variables file (contains secrets)
+.env
+
+# AWS Elastic Beanstalk configuration files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
+# Editor-specific configuration
 .vscode/
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
