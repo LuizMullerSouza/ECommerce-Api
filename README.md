@@ -14,6 +14,20 @@ The application is configured for production and has been deployed on the **AWS 
 
 ---
 
+## 📜 Certificate of Completion
+
+To further validate the skills demonstrated in this project, here is the certificate obtained upon completion of the course/training related to this e-commerce API development:
+
+<div align="center">
+
+| Certificate |
+|:---:|
+| <img src="img/python-with-flask-certificate.png" alt="Python with Flask Course Certificate" width="700"> |
+
+</div>
+
+---
+
 ## 🗝️ How to Test the API
 
 The API is deployed on AWS Elastic Beanstalk and can be publicly accessed via the following base URL:
