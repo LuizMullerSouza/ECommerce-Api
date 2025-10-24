@@ -22,7 +22,7 @@ To further validate the skills demonstrated in this project, here is the certifi
 
 | Certificate |
 |:---:|
-| <img src="img/python-with-flask-certificate.png" alt="Python with Flask Course Certificate" width="700"> |
+| <img src="./img/python-with-flask-certificate.png" alt="Python with Flask Course Certificate" width="700"> |
 
 </div>
 
