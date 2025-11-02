@@ -6,7 +6,7 @@ from flask_login import UserMixin, LoginManager, login_user, logout_user, login_
 
 # Configurações com Instância Flask
 application = Flask(__name__)
-application.config['SECRET_KEY'] = "minha_chave_123"
+application.config['SECRET_KEY'] = "your_secret_key"
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ecommerce.db'
 
 # Configurações Aplicadas
