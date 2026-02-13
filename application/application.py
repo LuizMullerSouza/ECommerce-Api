@@ -50,6 +50,21 @@ def load_user(user_id):
 def initial():
     return 'API up'
 
+# Rota de criar novos usuários
+@application.route('/api/user/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if User.query.filter_by(username=username).first():
+        return jsonify({'message': "User already exists"}), 400
+
+    new_user = User(username=username, password=password)
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({'message': "User created successfully"}), 201
+
 # Rota de login
 @application.route('/login', methods=["POST"])
 def login():

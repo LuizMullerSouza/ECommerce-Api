@@ -28,19 +28,151 @@ To further validate the skills demonstrated in this project, here is the certifi
 
 ---
 
-## 🗝️ How to Test the API
+## How to Run and Test Locally
 
-The API is deployed on AWS Elastic Beanstalk and can be publicly accessed via the following base URL:
+Follow this guide to set up the environment and run the API on your machine.
 
-**Base URL:** [http://ecommerce-api-dev.eba-tg62fziv.us-east-1.elasticbeanstalk.com](http://ecommerce-api-dev.eba-tg62fziv.us-east-1.elasticbeanstalk.com)
+### 1. Required facilities
 
-You can use a tool like [Postman](https://www.postman.com/) to send requests to the endpoints listed below.
+Before starting, ensure you have these two tools installed:
+
+### Python 3.12.12 or higher
+
+- Download the official [Python](https://www.python.org/downloads/) installer.
+- During installation, check the box **"Add Python to PATH"**.
+
+### Postman v11 or higher
+
+- Download the official [Postman](https://www.postman.com/downloads/) installer to send requests to the API.
 
 ---
+
+### 2. Virtual environment configuration
+
+Open your terminal in the project root folder and run these commands in order:
+
+* **Create a virtual environment:**
+
+```powershell
+py -m venv venv
+```
+
+* **Fix PowerShell execution policy:**
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+```
+
+* **Activate the virtual environment:**
+
+```powershell
+.\venv\Scripts\activate
+```
+
+* **Install project dependencies:**
+
+```powershell
+pip install -r application/requirements.txt
+```
+
+Once activated, you will see `(venv)` at the start of your terminal line.
+
+---
+
+### 3. Running the API
+
+With the environment ready, start the server using the following command:
+
+```powershell
+python application/application.py
+```
+
+The terminal will show:
+
+```
+* Running on http://127.0.0.1:5000
+```
+
+Keep this terminal open while testing.
+
+---
+
+### 4. Testing with Postman
+
+Open Postman and use the local address:
+
+```powershell
+http://127.0.0.1:5000
+```
+
+### Initial test: list products
+
+* **Paste the following URL for the listing route:** 
+
+```powershell
+http://127.0.0.1:5000/api/products
+```
+
+Using the **GET** method, submit a request to the local server.
+
+**You should receive an empty list:**
+
+```json
+[]
+```
+
+### Creating a new user
+
+To access protected routes, you need to create a user to log in.
+
+* **Paste the following URL into the route to create a new user:** 
+
+```powershell
+http://127.0.0.1:5000/api/user/register
+```
+Using the **POST** method, send a **JSON** with your username and password to create the account on the local server.
+
+```json
+{
+    "username": "yourusername",
+    "password": "yourpassword"
+}
+```
+
+> Once logged in, you will have access to all the routes provided by the API and can use them in any way you prefer.
+
+---
+
+## Existing routes for using the API
+
+This is a detailed description of all the routes that were created for this application, along with an example body and its possible JSON returns.
 
 ### 1. Authentication
 
 These routes manage user sessions. It is necessary to log in to obtain the session cookie used to authenticate protected routes.
+
+#### `POST /api/user/register`
+Register a user to start a session.
+
+* **Body (Example):**
+    ```json
+    {
+        "username": "user123",
+        "password": "password123"
+    }
+    ```
+* **Success Response (201):**
+    ```json
+    {
+        "message": "User created successfully"
+    }
+    ```
+* **Error Response (400):**
+    ```json
+    {
+        "message": "User already exists"
+    }
+    ```
 
 #### `POST /login`
 Authenticates a user and starts a session.
@@ -48,8 +180,8 @@ Authenticates a user and starts a session.
 * **Body (Example):**
     ```json
     {
-        "username": "Luiz",
-        "password": "12345678"
+        "username": "user123",
+        "password": "password123"
     }
     ```
 * **Success Response (200):**

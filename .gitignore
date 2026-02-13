@@ -8,9 +8,10 @@ __pycache__/
 venv/
 env/
 
-# Local database file (IMPORTANT: DO NOT COMMIT)
+# Local database file
 instance/ecommerce.db
 *.sqlite3
+ecommerce.db
 
 # Environment variables file (contains secrets)
 .env
